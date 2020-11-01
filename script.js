@@ -70,7 +70,7 @@ function generatePassword() {
   var password = "";
 
   for (var i = 1; i <= userInput.length ; i++) {
-    var index = [Math.floor(Math.random) * userInput.length];
+    var index = [Math.floor(Math.random) * chartString];
     password = password + userInput[index]
   }
 
@@ -78,7 +78,7 @@ function generatePassword() {
 
 }
 
-console.log(returnpassword)
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
