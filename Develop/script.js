@@ -2,13 +2,15 @@
 
 // variable needed to generate 
 var charUpperEl = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklnmopqrstuvwxyz", "0123456789", "~!@#$%^&*()-_=+"] ;
-var length = 6 - 100;
+var length = 8 - 128;
 var password = "";
 
 
 var chartStringEl = [];
 
 function generatePassword() {
+
+
 
   for (var i = 0; i < length; i++) {
     var randPw = Math.floor(Math.random() * charStringE;[].length);
