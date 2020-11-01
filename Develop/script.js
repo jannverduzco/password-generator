@@ -20,16 +20,16 @@ function writePassword() {
 function generatePassword() {
   var characterLength = 0
   while ((characterLength < 8 || characterLength > 128) || Number.isInteger(characterLength) === false) {
-    characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"))
+    characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"));
 
   }
 
-  charString[0] = false
-  charString[1] = false
-  charString[2] = false
-  charString[3] = false
+  charString[0] = true
+  charString[1] = true
+  charString[2] = true
+  charString[3] = true
 
-  while (!charString[0] && !charString[1] && !charString[2] && !charString[3]) {
+  while (charString[0] && charString[1] && charString[2] && charString[3]) {
 
     // Uppercase pop up
     charString[0] = confirm("Click OK to confirm uppercase characters");
@@ -67,14 +67,15 @@ function generatePassword() {
 
   }
 
-  for (var i=0; i< 0; i++) {
-    var index = Math.floor(Marth.Random)
+  for (var i = 0; i< 0; i++) {
+    var index = (Math.floor(Math.random) * userInput.length)
+    password = password + userInput[index]
   }
-
-
+  return password
 
 }
 console.log(generatePassword)
+
 
 
 // Add event listener to generate button
