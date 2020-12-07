@@ -3,7 +3,10 @@
 // variable needed to generate 
 var charString = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklnmopqrstuvwxyz", "0123456789", "~!@#$%^&*()-_=+"];
 
+
 var userInput = [];
+
+var password = "";
 
 var generateBtn = document.querySelector("#generate");
 
@@ -21,7 +24,6 @@ function generatePassword() {
   var characterLength = 0
   while ((characterLength < 8 || characterLength > 128) || Number.isInteger(characterLength) === false) {
     characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"));
-
   }
 
   var upper = false
@@ -44,42 +46,36 @@ function generatePassword() {
     symbol = confirm("Click OK to confirm special characters (~!@#$%^&*()-_=+)");
 
   }
-
+  //  push values userInput array
   if (upper) {
-    userInput += charString[0];
-
+    userInput.push(charString[0]);
   }
 
   if (lower) {
-    userInput += charString[1]
-
+    userInput.push(charString[1]);
   }
-
 
   if (number) {
-    userInput += charString[2]
-
+    userInput.push(charString[2]);
   }
 
-
   if (symbol) {
-    userInput += charString[3]
-
+    userInput.push(charString[3]);
   }
 
   var password = "";
 
-  for (var i = 1; i <= userInput.length ; i++) {
-    var index = [Math.floor(Math.random) * chartString];
+  // join all array elements into a single array -> then split to get an array of characters
+  userInput = userInput.join("").split("");
+
+// for loop through charachter array
+  for (var i = 0; i < characterLength; i++) {
+    // generatign random characters from userInput array
+    var index = (Math.floor(Math.random() * userInput.length));
     password = password + userInput[index]
   }
-
   return password
-
 }
-
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
